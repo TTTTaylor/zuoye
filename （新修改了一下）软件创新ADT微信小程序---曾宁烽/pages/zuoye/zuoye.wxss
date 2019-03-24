@@ -1,0 +1,46 @@
+/*定义背景颜色，高度*/
+page {
+  display: block;
+  min-height: 50%;
+  background-color: rgba(167, 244, 250, 0.418);
+}
+
+/*定义标题颜色，大小，位置*/
+.jiemian text{
+  font-size: 25px;
+  margin: 160rpx;
+  color: rgb(240, 192, 192);
+}
+
+/*定义账号位置，间接定义密码框的位置*/
+.zhanghao{
+  margin-top: 100px;
+}
+
+/*定义勾选框的位置*/
+.gouxuan{
+  margin-top: 20px;
+}
+.gouxuan label{
+  margin-right: 330rpx;
+}
+/*定义输入框的颜色，大小，*/
+input{
+  border: 2px solid rgb(241, 200, 200);
+  width: 310px;
+  height: 40px;
+}
+/*定义登录按钮的位置*/
+.button{
+  margin-top: 10px;
+}
+/*定义忘记密码链接和新用户注册链接的位置，还有颜色*/
+.newuser{
+  margin-top:200px; 
+}
+.newuser text{
+color: rgb(240, 192, 192);
+margin-right: 395rpx;
+}
+
+

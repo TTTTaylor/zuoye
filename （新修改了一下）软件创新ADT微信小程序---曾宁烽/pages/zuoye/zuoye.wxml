@@ -1,0 +1,31 @@
+<!--定义一个标题-->
+<view class='jiemian'>
+<text>欢迎来到登陆页面</text>
+</view>
+
+<!--定义账号密码的输入框-->
+<view class='zhanghao'>
+<text>账号：</text>
+<input placeholder='请输入你的账号' />
+</view>
+<view class='mima'>
+<text>密码：</text>
+<input placeholder='请输入你的密码' password="true"/>
+</view>
+
+<!--勾选记住账号 记住密码-->
+<view class="gouxuan">
+    <checkbox-group name="checkbox">
+      <label><checkbox value="checkbox1"/>记住账号</label>
+      <label><checkbox value="checkbox2"/>记住密码</label>
+    </checkbox-group>
+  </view>
+  <!--登陆，新用户注册，忘记密码-->
+  <view class="btn-area">
+<navigator url="../redirect/redirect?title=redirect" open-type="redirect" hover-class="other-navigator-hover"><button  type='primary'>登陆</button></navigator>
+ 
+</view>
+<view class='newuser' bindtap='newuser'>
+      <text>忘记密码?</text>
+       <text>新用户注册</text>
+    </view>

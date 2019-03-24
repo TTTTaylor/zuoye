@@ -1,0 +1,70 @@
+1把目录变成git可以管理的仓库 git init
+2把文件添加到仓库 git add filename(文件名带后缀）
+3把文件提交到仓库 git commit -m本次提交说明
+4添加多个文件 git file1 file2
+5思考一下怎样一次性添加几百个文件？
+6.查看仓库当前状态 git status
+7.查看文件的修改内容 git diff filename
+查看提交日志
+git log
+git log --pretty=oneline
+版本回退 git reset --hard commit_id
+查看命令记录 git reflog
+撤销在工作区的修改 git checkout --filename
+撤销暂存区的修改 git reset HEAD filename
+在版本库删除文件并提交 git rm filename
+创建SSH Key ssh-keygen -t rsa -Cyouremail@com` 一路next下去
+(如果一切顺利的话，可以在用户主目录里找到.ssh目录，里面有id_rsa和id_rsa.pub两个文件，
+这两个就是SSH Key的秘钥对，id_rsa是私钥，不能泄露出去，id_rsa.pub是公钥，可以放心地告诉任何人)
+添加SSH Key :
+
+登陆GitHub，打开“Account settings”，“SSH Keys”页面：
+然后，点“Add SSH Key”，填上任意Title，在Key文本框里粘贴id_rsa.pub文件的内容：
+
+本地仓库关联远程仓库 git remote add origin repo_url
+本地库内容推送到远程 git push -u origin master(第一次推送）
+把本地库的内容推送到远程，用git push命令，实际上是把当前分支master推送到远程。
+由于远程库是空的，我们第一次推送master分支时，加上了-u参数，
+Git不但会把本地的master分支内容推送的远程新的master分支，
+还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。
+远程克隆到本地： git clone RepositoryUrl
+创建并切换分枝 git checkout -b branchName 等同于git branch branchName+git checkout branchName
+查看分支状态，带有*为当前分支 git branch
+切换分支 git checkout branchName
+合并指定分支到当前分支（快速合并模式） git merge branchName
+删除分支：git branch -d branchName
+查看合并分支图：git log graph
+禁用快速合并模式（会生成一次新的commit）：git merge --no-ff -m描述branchName
+隐藏当前工作现场：git stash
+查看隐藏的工作现场：git stash list
+恢复工作现场：
+1）`git stash apply`（不删除隐藏内容，需要使用`git stash drop`来删除）
+2）：`git stash pop`（恢复的同时删除）
+多次隐藏使用git stash list查看，然后git stash apply stash@{0}恢复指定stash
+创建新分支没有被合并，强制删除：git branch -D branchName
+查看远程仓库信息：git remote/git remote -v（更详细）
+推送分支：git push origin master（master分支） 指定分支：git push origin branchName
+抓取远程分支：git pull
+本地分支与远程分支关联：git branch --set-upstream-to=origin/dev dev git branch –set-upstream-to=origin/dev dev
+修改远程仓库的方法
+修改命令
+git remote origin set-url [url]
+先删后加
+git remote rm origin然后
+git remote add origin [url]
+直接修改config文件
+git rebase -i master~1 变基最后一次提交
+
+出来提示信息,修改 pick 为 edit ，并 :wq 保存退出(VIM命令修改..不多说)
+
+使用 git commit –amend 进行修改，完成后 :wq 退出 (这个是修改注释)
+
+修改XX文件 (这个是修改文件)
+
+git add XX 刚刚修改的文件
+
+使用 git rebase –continue 完成操作
+
+:wq 保存退出
+
+git push -f 强制push当前master
